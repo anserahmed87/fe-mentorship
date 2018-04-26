@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Page, Header, Footer} from './components';
+import {Page, Header, Footer, Content} from './components';
 
 class App extends Component {
     render() {
@@ -9,6 +9,7 @@ class App extends Component {
             <Page>
                 <Header/>
                 Page will be here
+                <Content/>
                 <Footer/>
             </Page>
         );
