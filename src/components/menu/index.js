@@ -1,9 +1,9 @@
 import React from 'react';
 
 export const Menu = ({ links }) => (
-    <ul>
+    <ul className="unstyle menu">
         {links.map(link => (
-            <li key ={link.url} >
+            <li key ={link.url} className="unstyle menu_item">
                 <a href={link.url}>{link.text}</a>
             </li>
         ))}

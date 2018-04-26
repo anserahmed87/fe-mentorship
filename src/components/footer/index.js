@@ -1,7 +1,6 @@
 import React from 'react';
-
 import { Menu } from '../';
-
+import './styles.css';
 const footerMenu = [
       { text: 'Pure UI',          url: 'https://rauchg.com/2015/pure-ui' },
       { text: 'Documentation',    url: 'https://reactjs.org/docs/' },
@@ -11,7 +10,7 @@ const footerMenu = [
     ];
 
 export const Footer = () => (
-    <div>
+    <div className="footer">
         <Menu links={footerMenu}/>
     </div>
 );
