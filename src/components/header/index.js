@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu } from '../';
+import './styles.css';
 
 const mainMenu = [
       { text: 'New',    url: 'https://news.ycombinator.com/newest' },
@@ -8,11 +9,13 @@ const mainMenu = [
     ];
 
 export const Header = () => (
-    <div>
-        <span>
+    <div className="header">
+        <span className="header_logo">
          <img src="https://news.ycombinator.com/y18.gif" alt= "React new logo" />
             news here
         </span>
-        <Menu links={mainMenu}/>
+        <div className="header_menu">
+            <Menu links={mainMenu}/>
+        </div>
     </div>
 )
