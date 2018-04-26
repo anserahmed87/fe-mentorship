@@ -5,11 +5,11 @@ import {Page, Header, Footer, Content} from './components';
 class App extends Component {
     render() {
         return (
-
             <Page>
-                <Header/>
-                Page will be here
-                <Content/>
+                <div>
+                    <Header/>
+                    <Content/>
+                </div>
                 <Footer/>
             </Page>
         );
