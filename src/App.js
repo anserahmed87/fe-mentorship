@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import {Page, Header, Footer, Content} from './components';
+import {Page, Header, Footer, Content,NewsItem} from './components';
 
 class App extends Component {
     render() {
@@ -13,6 +13,7 @@ class App extends Component {
                     <Content>
                         This is content
                     </Content>
+                    <NewsItem id={16983195}/>
                 </div>
                 <Footer/>
             </Page>
