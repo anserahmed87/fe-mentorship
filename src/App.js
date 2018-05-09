@@ -4,10 +4,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Content, Footer, Header, Page, PageNewsList} from './components';
 import {NewsItem} from "./components/newsitem";
 
-// <NewsItem id={16983195}/>
-//<NewsItemList ids={[16983195, 16978342, 16980292]}/>
-//<Route path="/item/:itemId" component={NewsItem}/>
-
 class App extends Component {
     render() {
         return (
@@ -30,5 +26,4 @@ class App extends Component {
         );
     }
 }
-
 export default App;
