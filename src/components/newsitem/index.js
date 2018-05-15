@@ -2,10 +2,6 @@ import React from 'react';
 import {api} from '../../utils'
 import {Link} from 'react-router-dom';
 
-
-//import './styles.css';
-
-
 export const NewsItem = ({id}) => {
     const item = api.getItem(id);
     return (
