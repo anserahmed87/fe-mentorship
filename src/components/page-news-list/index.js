@@ -27,7 +27,6 @@ export class  PageNewsList  extends Component{
     }
 
     render() {
-        console.log('RENDER');
         const { ids } = this.state;
         if (!ids) {
             return <div>Loading?</div>
