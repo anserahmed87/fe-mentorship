@@ -12,10 +12,14 @@ export class  PageNewsList  extends Component{
         }
     }
 
-    componentDidMount() {
+    fetchItems() {
         api.getItemsIds()
             .then(ids =>  this.setState({ ids }))
             .catch(err => { console.error(err) });
+    }
+
+    componentDidMount() {
+        this.fetchItems();
     }
 
     render() {
@@ -25,6 +29,9 @@ export class  PageNewsList  extends Component{
         }
         return (
             <div>
+                <button onClick={this.fetchItems}>
+                   Refresh
+                </button>
                 <NewsItemList ids={ids}/>;
             </div>
         )
