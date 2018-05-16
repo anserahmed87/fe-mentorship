@@ -36,7 +36,7 @@ export class  PageNewsList  extends Component{
                 <button onClick={this.fetchItems}>
                    Refresh
                 </button>
-                <NewsItemList ids={ids}/>;
+                <NewsItemList ids={ids}/>
             </div>
         )
     }

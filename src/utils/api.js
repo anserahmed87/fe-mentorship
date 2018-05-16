@@ -26,5 +26,4 @@ const getItem = (id) => {
 export const api = {
     getItemsIds,
     getItem,
-   // getItem: (id) => itemsPerId[id],
 }
