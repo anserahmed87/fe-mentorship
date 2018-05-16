@@ -8,18 +8,18 @@
 // `url`?The URL of the story.
 
 
+const BASE_URL="https://hacker-news.firebaseio.com/v0";
 const fetchJson = url => fetch(url).then(res => res.json());
 const first10 = arr => arr.slice(0, 10);
 
-// Items Ids Endpoint https://hacker-news.firebaseio.com/v0/topstories.json
+
 const getItemsIds = () => {
-    return fetchJson(`https://hacker-news.firebaseio.com/v0/topstories.json`)
-        .then(data => {first10(data)});
+    return fetchJson(`${BASE_URL}/topstories.json`)
+        .then(data => first10(data));
 }
-//export const getInstrument = id => fetchJson(`/api/v2/instrument/${id}`);
-// Item endpoint https://hacker-news.firebaseio.com/v0/item/8863.json
+
 const getItem = (id) => {
-   return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+   return fetchJson(`${BASE_URL}/item/${id}.json`);
 }
 
 

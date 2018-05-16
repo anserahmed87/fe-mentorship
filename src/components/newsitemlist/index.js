@@ -1,6 +1,6 @@
 import React from 'react';
 import {NewsItem} from "../";
-import { api } from '../../utils';
+import App from "../../App";
 
 export const NewsItemList = ({ids}) => {
     console.log(ids)
@@ -14,3 +14,4 @@ export const NewsItemList = ({ids}) => {
         </ol>
     )
 }
+export default App;
