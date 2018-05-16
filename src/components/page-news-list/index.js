@@ -2,7 +2,7 @@ import {NewsItemList} from '../';
 import {api} from '../../utils'
 import React, { Component } from 'react';
 
-const isArraysEqual = (arr1, arr2) => arr1.toString() === arr2.toString();
+const isArraysEqual = (arr1=[], arr2=[]) => arr1.toString() === arr2.toString();
 
 export class  PageNewsList  extends Component{
     constructor(props) {
@@ -10,19 +10,24 @@ export class  PageNewsList  extends Component{
         this.state = {
             ids: undefined,
         }
-    }
 
-    fetchItems() {
-        api.getItemsIds()
-            .then(ids =>  this.setState({ ids }))
-            .catch(err => { console.error(err) });
+        this.fetchItems = () => {
+            api.getItemsIds()
+                .then(ids =>  this.setState({ ids }))
+                .catch(err => { console.error(err) });
+        }
     }
 
     componentDidMount() {
         this.fetchItems();
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return !isArraysEqual(this.state.ids,nextState.ids);
+    }
+
     render() {
+        console.log('RENDER');
         const { ids } = this.state;
         if (!ids) {
             return <div>Loading?</div>

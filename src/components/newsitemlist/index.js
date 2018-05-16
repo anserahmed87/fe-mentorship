@@ -3,7 +3,7 @@ import {NewsItem} from "../";
 import App from "../../App";
 
 export const NewsItemList = ({ids}) => {
-    console.log(ids)
+    //console.log(ids)
     return (
         <ol >
             {ids.map(id => (
