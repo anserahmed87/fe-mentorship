@@ -1,5 +1,6 @@
 import React from 'react';
 import {NewsItem} from "../";
+import App from "../../App";
 
 export const NewsItemList = ({ids}) => {
     return (
@@ -12,3 +13,4 @@ export const NewsItemList = ({ids}) => {
         </ol>
     )
 }
+export default App;
