@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {api} from '../../utils'
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 export class  NewsItem  extends Component{
     constructor(props) {
@@ -41,6 +42,7 @@ export class  NewsItem  extends Component{
         )
     }
 }
+export default connect(null,null)(NewsItem)
 
 
 

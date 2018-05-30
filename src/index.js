@@ -4,13 +4,15 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { rootReducer } from './reducers/index.js';
-import { createStore, } from 'redux';
 import { Provider } from 'react-redux';
-
-
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware,compose } from "redux";
 const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+        applyMiddleware(thunk),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 );
 
 ReactDOM.render(
