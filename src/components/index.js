@@ -1,5 +1,5 @@
 export  * from './page';
-export * from './header';
+export {default as Header} from './header';
 export * from './content';
 export * from './footer';
 export * from './menu';
