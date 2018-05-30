@@ -30,7 +30,7 @@ const uiReducer = combineReducers({
 // DATA
 
 const dataItemsIdsInitialState = { ids: [], isLoading: false, error: null };
-const itemIdsReducer = (state = dataItemsIdsInitialState, action) => {
+const itemsIdsReducer = (state = dataItemsIdsInitialState, action) => {
     switch (action.type) {
         case 'REQUEST_ITEMS_IDS_START':
             return { ...state, isLoading: true };
