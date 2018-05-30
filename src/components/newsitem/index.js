@@ -5,12 +5,6 @@ import { connect } from 'react-redux';
 import * as action from '../../actions';
 
 export class  NewsItem  extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            item: undefined,
-        }
-    }
 
     componentDidMount() {
         api.getItem(this.props.id)
@@ -20,7 +14,7 @@ export class  NewsItem  extends Component{
     }
 
     render() {
-        const { item } = this.state;
+        const {item}  = this.props;
         if (!item) {
             return <div>Loading?</div>
         }
@@ -45,15 +39,17 @@ export class  NewsItem  extends Component{
     }
 }
 
-const mapDispatchToProps={
-    fetchItems:action.fetchItem,
-}
-
 const mapStateToProps = (state, ownProps) => {
     return {
         item: (state.data.items[ownProps.id]|| {}).item,
     }
 };
+
+const mapDispatchToProps={
+    fetchItems:action.fetchItem,
+}
+
+
 export default connect(mapStateToProps,mapDispatchToProps)(NewsItem)
 
 
