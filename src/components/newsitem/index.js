@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {api} from '../../utils'
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as action from '../../actions';
 
 export class  NewsItem  extends Component{
     constructor(props) {
@@ -13,8 +14,9 @@ export class  NewsItem  extends Component{
 
     componentDidMount() {
         api.getItem(this.props.id)
-            .then(item =>  this.setState({item}))
-            .catch(err => { console.error(err) });
+            .then(item =>  this.setState({item}));
+
+        this.props.fetchItems(this.props.id)
     }
 
     render() {
@@ -42,7 +44,17 @@ export class  NewsItem  extends Component{
         )
     }
 }
-export default connect(null,null)(NewsItem)
+
+const mapDispatchToProps={
+    fetchItems:action.fetchItem,
+}
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        item: (state.data.items[ownProps.id]|| {}).item,
+    }
+};
+export default connect(mapStateToProps,mapDispatchToProps)(NewsItem)
 
 
 
