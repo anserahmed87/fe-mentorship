@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import {api} from '../../utils'
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as action from '../../actions';
 
 export class  NewsItem  extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            item: undefined,
-        }
-    }
 
     componentDidMount() {
         api.getItem(this.props.id)
-            .then(item =>  this.setState({item}))
-            .catch(err => { console.error(err) });
+            .then(item =>  this.setState({item}));
+
+        this.props.fetchItems(this.props.id)
     }
 
     render() {
-        const { item } = this.state;
+        const {item}  = this.props;
         if (!item) {
             return <div>Loading?</div>
         }
@@ -41,6 +38,19 @@ export class  NewsItem  extends Component{
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        item: (state.data.items[ownProps.id]|| {}).item,
+    }
+};
+
+const mapDispatchToProps={
+    fetchItems:action.fetchItem,
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewsItem)
 
 
 
