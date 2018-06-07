@@ -22,25 +22,10 @@ export const selectors = {
 
 // example duck's types
 export const types = {
-    updateItemsToShow: `${ns} / UPDATE_ITEMS_TO_SHOW`,
-    toggleTheme: `${ns} / TOGGLE_THEME`,
+    updateItemsToShow: 'UPDATE_ITEMS_TO_SHOW',
+    toggleTheme: 'TOGGLE_THEME',
 };
-// UI
 
-
-export const updateItemsToShow = value => ({
-    type: types.updateItemsToShow,
-    payload: value,
-});
-
-const toggleTheme = () => ({
-    type: types.toggleTheme,
-});
-
-export const actions = {
-    updateItemsToShow,
-    toggleTheme,
-};
 
 const rawReducer = (state = defaultState, action) => {
     switch (action.type) {
@@ -56,6 +41,20 @@ const rawReducer = (state = defaultState, action) => {
             }
         default:
             return state;
+
+export const updateItemsToShow = value => ({
+    type: types.updateItemsToShow,
+    payload: value,
+});
+
+const toggleTheme = () => ({
+    type: types.toggleTheme,
+});
+
+export const actions = {
+    updateItemsToShow,
+    toggleTheme,
+};
     }
 };
 
