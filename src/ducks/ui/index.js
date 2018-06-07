@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const ns = 'ui-duck';
+export const ns = 'ui';
 
 export const shape = {
     itemsToShow: PropTypes.number.isRequired,
@@ -12,7 +12,7 @@ export const defaultState = {
     isDarkTheme: false,
 };
 
-const root = state => state[ns];
+const root = state => state?state[ns]:defaultState;
 
 export const selectors = {
     root,
