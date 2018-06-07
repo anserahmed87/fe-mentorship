@@ -35,32 +35,43 @@ const rawReducer = (state = defaultState, action) => {
                 itemsToShow: action.payload
             }
         case types.toggleTheme:
-            return{
+            return {
                 ...state,
                 isDarkTheme: !state.isDarkTheme
             }
         default:
             return state;
+    }}
+    ;
 
-export const updateItemsToShow = value => ({
-    type: types.updateItemsToShow,
-    payload: value,
-});
+    export const updateItemsToShow = value => ({
+        type: types.updateItemsToShow,
+        payload: value,
+    });
 
-const toggleTheme = () => ({
-    type: types.toggleTheme,
-});
+    const toggleTheme = () => ({
+        type: types.toggleTheme,
+    });
 
-export const actions = {
-    updateItemsToShow,
-    toggleTheme,
-};
-    }
-};
+    export const actions = {
+        updateItemsToShow,
+        toggleTheme,
+    };
 
-export  const reducer= {
-    [ns]:rawReducer
+
+
+export const reducer = {
+    [ns]: rawReducer
 }
 
-
+export default {
+    ns,
+    shape,
+    defaultState,
+    selectors,
+    types,
+    actions,
+    rawReducer,
+    reducer,
+}
 
