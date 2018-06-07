@@ -1,9 +1,7 @@
 import {NewsItemList} from '../';
-import {api} from '../../utils'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import {NewsItem} from "../newsitem";
 
 const isArraysEqual = (arr1=[], arr2=[]) => arr1.toString() === arr2.toString();
 
@@ -24,8 +22,8 @@ export class  PageNewsList  extends Component{
         }
         return (
             <div>
-                <button onClick={this.fetchItems}>
-                   Refresh
+                <button onClick={this.props.fetchItemsIds}>
+                    Refresh
                 </button>
                 <NewsItemList ids={ids}/>
             </div>
