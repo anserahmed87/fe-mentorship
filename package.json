@@ -4,6 +4,7 @@
   "private": true,
   "repository": "https://github.com/anserahmed87/fe-mentorship",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
