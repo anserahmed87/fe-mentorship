@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 export const ns = 'ui';
 
+
 export const shape = {
     itemsToShow: PropTypes.number.isRequired,
     isDarkTheme: PropTypes.bool.isDarkTheme,

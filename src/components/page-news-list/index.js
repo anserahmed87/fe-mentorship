@@ -34,7 +34,7 @@ export class  PageNewsList  extends Component{
 const firstN = (n, arr) => arr.slice(0, n);
 const mapStateToProps = (state) => {
     return {
-        ids: firstN(ducks.ui.selectors.itemsToShow(),state.data.itemsIds.ids)
+        ids: firstN(ducks.ui.selectors.itemsToShow(state),state.data.itemsIds.ids)
     }
 };
 
