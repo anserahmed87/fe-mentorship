@@ -5,9 +5,9 @@ export const ns = 'items';
 const stringifyErr = err => err.toString();
 
 const shape = {
-    item: PropTypes.object,
-    isLoading: PropTypes.bool.isRequired,
-    error: PropTypes.object,
+   // item: PropTypes.object,
+    //isLoading: PropTypes.bool.isRequired,
+    //error: PropTypes.object,
 };
 
 export const defaultState = {
@@ -21,9 +21,9 @@ const root = state => state ? state[ns] : defaultState;
 
 export const selectors = {
     root,
-    item: state => root(state).item,
-    isLoading: state => root(state).isLoading,
-    error: state => root(state).error,
+    item: (state,id) => (root(state)[id] || {}).item,
+    isLoading: (state,id) => (root(state)[id] || {}).isLoading,
+    error: (state,id) => (root(state)[id] || {}).error,
 };
 
 export const types = {
