@@ -3,7 +3,7 @@ import itemsIds from "./itemsIds";
 import item from "./item";
 import { mapObj, augmentSelectorWith } from "../../utils";
 
-export const ns = "data-duck";
+export const ns = "data";
 
 const root = state => state[ns];
 export const selectors = {

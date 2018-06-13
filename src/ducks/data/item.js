@@ -1,14 +1,9 @@
-import PropTypes from 'prop-types';
 import {api} from "../../utils/api";
 
 export const ns = 'items';
 const stringifyErr = err => err.toString();
 
-const shape = {
-   // item: PropTypes.object,
-    //isLoading: PropTypes.bool.isRequired,
-    //error: PropTypes.object,
-};
+const shape = {};
 
 export const defaultState = {
     item: {},
