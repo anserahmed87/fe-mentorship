@@ -1,23 +1,35 @@
-import { combineReducers } from 'redux';
-import * as item from './item';
-import * as itemsIds from './itemsIds';
-import { mergeObjects, augmentSelectors } from '../utils';
+import { combineReducers } from "redux";
+import itemsIds from "./itemsIds";
+import item from "./item";
+import { mapObj, augmentSelectorWith } from "../../utils";
 
-export const ns = 'nested';
-
-export const shape = mergeObjects([ item.shape, itemsIds.shape ]);
-export const defaultState = mergeObjects([ subduck1.defaultState, subduck2.defaultState ]);
+export const ns = "data-duck";
 
 const root = state => state[ns];
 export const selectors = {
     root,
-    ...augmentSelectors(root, subduck1.ns, subduck1.actions),
-    ...augmentSelectors(root, subduck1.ns, subduck2.actions),
+};
+
+export const rawReducer = combineReducers({
+    ...itemsIds.reducer,
+    ...item.reducer
+});
+
+const reducer = {
+    [ns]: rawReducer
 }
 
-export const actions = mergeObjects([subduck1.actions, subduck2.actions]);
-
-export const reducer = combineReducers({
-    ...subduck1.reducer,
-    ...subduck2.reducer,
-});
+export default {
+    ns,
+    selectors,
+    rawReducer,
+    reducer,
+    itemsIds: {
+        ...itemsIds,
+        selectors: mapObj(itemsIds.selectors, augmentSelectorWith(root)),
+    },
+    item: {
+        ...item,
+        selectors: mapObj(item.selectors, augmentSelectorWith(root)),
+    },
+};
