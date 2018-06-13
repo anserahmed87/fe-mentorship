@@ -7,9 +7,6 @@ import * as ducks from '../../ducks'
 export class NewsItem extends Component {
 
     componentDidMount() {
-        api.getItem(this.props.id)
-            .then(item => this.setState({item}));
-
         this.props.fetchItems(this.props.id)
     }
 
