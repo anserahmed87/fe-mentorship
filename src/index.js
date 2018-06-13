@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { rootReducer } from './reducers/index.js';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware,compose } from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import * as ducks from './ducks';
+
+const rootReducer = combineReducers({
+    ...ducks.ui.reducer,
+    ...ducks.data.reducer,
+});
+
 const store = createStore(
     rootReducer,
     compose(
@@ -17,8 +23,11 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>,
     document.getElementById('root')
 )
 registerServiceWorker();
+
+// ROOT
+
