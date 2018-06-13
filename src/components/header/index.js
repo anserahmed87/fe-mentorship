@@ -1,7 +1,6 @@
 import React from 'react';
 import {Menu} from '../';
 import {Link} from 'react-router-dom';
-import * as actions from '../../actions'
 import './styles.css';
 import { connect } from 'react-redux';
 import * as ducks from '../../ducks'
