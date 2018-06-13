@@ -38,12 +38,12 @@ const types = {
 });
 
  const requestItemsIdsSuccess = itemsIds => ({
-    type: types.requestItemIdsSuccess,
+    type: types.success,
     payload: itemsIds,
 });
 
  const requestItemsIdsFail = err => ({
-    type: types.requestItemIdsFail,
+    type: types.fail,
     payload: err,
 });
 const fetchItemsIds = () => {
@@ -70,11 +70,11 @@ const actions = {
 
 const rawReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case types.requestItemsIdsStart:
+        case types.start:
             return {...state, isLoading: true};
-        case types.requestItemsIdsSuccess:
+        case types.success:
             return {ids: action.payload, isLoading: false, error: null};
-        case types.requestItemsIdsFail:
+        case types.fail:
             return {
                 ids: {},
                 isLoading: false,

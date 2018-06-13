@@ -3,6 +3,7 @@ import {api} from '../../utils'
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as action from '../../actions';
+import * as ducks from '../../ducks'
 
 export class  NewsItem  extends Component{
 
@@ -41,7 +42,8 @@ export class  NewsItem  extends Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        item: (state.data.items[ownProps.id]|| {}).item,
+        //item:ducks.data.selectors.item(state,ownProps.id),
+       item: (state.data.items[ownProps.id]|| {}).item,
     }
 };
 
