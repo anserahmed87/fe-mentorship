@@ -2,15 +2,16 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import * as ducks from '../../ducks'
+import { withRouter } from 'react-router-dom';
 
 
 export const Page = ({ children,isDarkTheme }) =>{
     const className=isDarkTheme?'page page-dark':'page';
     return    (
-    <div className={className}>
-        { children }
-    </div>
-);
+        <div className={className}>
+            { children }
+        </div>
+    );
 }
 
 
@@ -20,4 +21,4 @@ const mapStateToProps = state => {
         isDarkTheme: ducks.ui.selectors.isDarkTheme,
     }
 };
-export default  connect(mapStateToProps,null)(Page)
+export default  withRouter(connect(mapStateToProps,null)(Page))
